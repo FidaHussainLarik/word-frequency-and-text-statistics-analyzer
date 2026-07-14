@@ -1,11 +1,40 @@
 from pathlib import Path
-DATA_FILE_PATH = Path(__file__).resolve().parent.parent/"sample_data"
+import time
+DATA_FILE_PATH = Path(__file__).resolve().parent/"sample_data"
+
 
 # function to take user input (file name) and fetch that specific file and return file-handle back
-def input():
-    # Implement user input and file file-fetching logic here.
-    # Returning a dummy value for now so the rest of the program doesn't crash
-    return None
+def get_file():
+
+    file_handle = None
+    while True:
+        file_name = input("Enter the file you want to analysis(format shoul be .txt): ")
+        try:
+            file_handle = open(DATA_FILE_PATH/file_name)
+            print("Opening the file.....")
+            print("File open successfully!")
+            return file_handle
+        except FileNotFoundError:
+            print("File not found ⚠")
+
+            answer = input("Press enter to reenter the correct file name or format OR enter 'exit' to end the program: ").strip().lower()
+            if answer == 'exit': 
+                break
+            else:
+                continue
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # This function counts words
@@ -41,5 +70,56 @@ def top_most(file):
 
 # Summary report generator
 def report(file):
-    
     return None
+
+def borders(type_of_b):
+    print(f"{type_of_b*70}")
+
+def display_file_content(file_handle):
+    borders("-")
+    print("                 Displaying file content")
+    borders("-")
+
+    for line in file_handle:
+        line = line.rstrip()
+        print(line)
+
+def main():
+    print("\n\n")
+    borders("*")
+    print("         Word Frequency & Text Statistics Analyzer")
+    borders("*")
+
+    file_handle = get_file()
+    if not file_handle:
+        print(type(file_handle))
+        print("🏃Exiting the program",end='')
+        for _ in range(5):
+            print(".",end='')
+            time.sleep(1)
+        quit()
+    else:
+        display_file_content(file_handle)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # End of the main function
+    print("\n\n")
+
+if __name__ == "__main__":
+    main()
