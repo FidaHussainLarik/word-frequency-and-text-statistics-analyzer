@@ -1,13 +1,11 @@
 from pathlib import Path
 import time
-import re
 DATA_FILE_PATH = Path(__file__).resolve().parent/"sample_data"
 
 
 # function to take user input (file name) and fetch that specific file and return file-handle back
 def get_file():
 
-    file_handle = None
     while True:
         file_name = input("Enter the file you want to analysis(format shoul be .txt): ")
         try:
@@ -16,7 +14,19 @@ def get_file():
                 file_handle = open(DATA_FILE_PATH/file_name)
                 print("Opening the file.....")
                 print("File opened successfully!")
-                return file_handle
+
+                #Check if file is empty or not before returning it to main
+                content = file_handle.read()
+                if content:
+                    return file_handle
+                else:
+                    print("File is empty 📪")
+                    print("File has no content to analyze.")
+                    answer = input("Press enter to re-enter the correct file format OR enter 'exit' to end the program: ").strip().lower()
+                    if answer == 'exit': 
+                        break
+                    else:
+                        continue
             else:
                 print("Unsupported file format ⚠")
                 answer = input("Press enter to re-enter the correct file format OR enter 'exit' to end the program: ").strip().lower()
@@ -38,10 +48,12 @@ def get_file():
 
 
 # This function counts words
-def count_words(file):
-    # Will implement word counting logic here.
-    words_count = None
-    return words_count
+def count_words(file_handle):
+    content = file_handle.read()
+    # .split() function convert entire file content (which is a long string of words) into a list of words
+    # list elements will be seperated by space ' '.
+    word_list = content.split()
+    return len(word_list)
 
 
 # this will count the total number of sentences in the file
@@ -91,6 +103,7 @@ def main():
     borders("*")
 
     file_handle = get_file()
+
     if not file_handle:
         print(type(file_handle))
         print("🏃Exiting the program",end='')
@@ -100,14 +113,10 @@ def main():
         quit()
     else:
         display_file_content(file_handle)
-
-
-
-
-
-
-
-
+    
+    file_handle.seek(0)
+    total_words = count_words(file_handle)
+    print("Total Words in the file: ",total_words)
 
 
 
