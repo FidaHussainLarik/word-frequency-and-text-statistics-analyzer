@@ -1,1 +1,2 @@
-Python is a powerful programming language. Python is easy to learn. Many developers love Python because it is simple and readable.
+Python is a powerful programming language. Python is easy to learn. 
+Many developers love Python because it is simple and readable. Now the program should split string into sentences when it sees a qustion marks? Or when it sees a exclamation mark! Hope it will work.

@@ -1,5 +1,6 @@
 from pathlib import Path
 import time
+import re
 DATA_FILE_PATH = Path(__file__).resolve().parent/"sample_data"
 
 
@@ -49,6 +50,8 @@ def get_file():
 
 # This function counts words
 def count_words(file_handle):
+    # Reset the pointer to the first line of the file
+    file_handle.seek(0)
     content = file_handle.read()
     # .split() function convert entire file content (which is a long string of words) into a list of words
     # list elements will be seperated by space ' '.
@@ -57,9 +60,13 @@ def count_words(file_handle):
 
 
 # this will count the total number of sentences in the file
-def count_sentences(file):
-    sent_count = None
-    return sent_count
+def count_sentences(file_handle):
+    # Reset the pointer to the first line of the file
+    file_handle.seek(0)
+
+    content = file_handle.read()
+    sent_list = re.split('[.!?]',content)
+    return len(sent_list)-1
 
 
 
@@ -93,7 +100,7 @@ def display_file_content(file_handle):
     borders("-")
 
     for line in file_handle:
-        line = line.rstrip()
+        line = line.strip()
         print(line)
 
 def main():
@@ -102,7 +109,10 @@ def main():
     print("         Word Frequency & Text Statistics Analyzer")
     borders("*")
 
-    file_handle = get_file()
+
+    # for debuging purpose choose a static file not ask one on run time
+    # file_handle = get_file()
+    file_handle = open(DATA_FILE_PATH/"sample_short.txt")
 
     if not file_handle:
         print(type(file_handle))
@@ -110,13 +120,19 @@ def main():
         for _ in range(5):
             print(".",end='')
             time.sleep(1)
-        quit()
-    else:
-        display_file_content(file_handle)
+        quit() 
     
-    file_handle.seek(0)
+    # This is added just for debuging purpose
+    display_file_content(file_handle)
     total_words = count_words(file_handle)
-    print("Total Words in the file: ",total_words)
+    total_sentences = count_sentences(file_handle)
+
+
+
+    print("Total Words in the file    : ",total_words)
+    print("Total sentences in the file: ",total_sentences)
+
+
 
 
 
