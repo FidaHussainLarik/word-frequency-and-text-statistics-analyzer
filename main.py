@@ -1,6 +1,5 @@
 from pathlib import Path
 import time
-import re
 DATA_FILE_PATH = Path(__file__).resolve().parent/"sample_data"
 
 
@@ -16,7 +15,19 @@ def get_file():
                 file_handle = open(DATA_FILE_PATH/file_name)
                 print("Opening the file.....")
                 print("File opened successfully!")
-                return file_handle
+
+                #Check if file is empty or not before returning it to main
+                content = file_handle.read()
+                if content:
+                    return file_handle
+                else:
+                    print("File is empty 📪")
+                    print("File has no content to analyze.")
+                    answer = input("Press enter to re-enter the correct file format OR enter 'exit' to end the program: ").strip().lower()
+                    if answer == 'exit': 
+                        break
+                    else:
+                        continue
             else:
                 print("Unsupported file format ⚠")
                 answer = input("Press enter to re-enter the correct file format OR enter 'exit' to end the program: ").strip().lower()
@@ -38,9 +49,14 @@ def get_file():
 
 
 # This function counts words
-def count_words(file):
-    # Will implement word counting logic here.
+def count_words(file_handle):
     words_count = None
+
+
+    
+
+
+
     return words_count
 
 
@@ -99,15 +115,8 @@ def main():
             time.sleep(1)
         quit()
     else:
-        display_file_content(file_handle)
-
-
-
-
-
-
-
-
+        print("CHECKED THAT FILE IS NOT EMPTY")
+        # display_file_content(file_handle)
 
 
 
