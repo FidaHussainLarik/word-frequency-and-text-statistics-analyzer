@@ -37,19 +37,6 @@ def get_file():
 # End of the method
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 # This function counts words
 def count_words(file):
     # Will implement word counting logic here.
