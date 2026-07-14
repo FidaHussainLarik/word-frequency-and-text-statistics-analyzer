@@ -12,14 +12,18 @@ def get_file():
         file_name = input("Enter the file you want to analysis(format shoul be .txt): ")
         try:
             # Edge case handled
-            if re.findall('.txt',file_name):
+            if file_name.endswith('.txt'):
                 file_handle = open(DATA_FILE_PATH/file_name)
                 print("Opening the file.....")
                 print("File opened successfully!")
                 return file_handle
             else:
                 print("Unsupported file format ⚠")
-                continue
+                answer = input("Press enter to re-enter the correct file format OR enter 'exit' to end the program: ").strip().lower()
+                if answer == 'exit': 
+                    break
+                else:
+                    continue
                 
         # in case file not found the program asks user for re-entering the filename or to quit the execution
         except FileNotFoundError:
