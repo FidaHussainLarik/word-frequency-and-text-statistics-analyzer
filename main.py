@@ -49,13 +49,11 @@ def get_file():
 
 # This function counts words
 def count_words(file_handle):
-    words_count = 0
     content = file_handle.read()
-    print(content)
+    # .split() function convert entire file content (which is a long string of words) into a list of words
+    # list elements will be seperated by space ' '.
     word_list = content.split()
-    print(word_list)
-    words_count = len(word_list)
-    return words_count
+    return len(word_list)
 
 
 # this will count the total number of sentences in the file
