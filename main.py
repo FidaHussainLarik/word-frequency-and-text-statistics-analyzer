@@ -112,11 +112,16 @@ def main():
             time.sleep(1)
         quit()
     else:
+        # This is added just for debuging purpose
         display_file_content(file_handle)
     
     file_handle.seek(0)
     total_words = count_words(file_handle)
     print("Total Words in the file: ",total_words)
+
+    # Reset the pointer to the first line of the file
+    file_handle.seek(0)
+
 
 
 
