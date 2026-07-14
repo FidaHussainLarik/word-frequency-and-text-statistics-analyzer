@@ -6,7 +6,6 @@ DATA_FILE_PATH = Path(__file__).resolve().parent/"sample_data"
 # function to take user input (file name) and fetch that specific file and return file-handle back
 def get_file():
 
-    file_handle = None
     while True:
         file_name = input("Enter the file you want to analysis(format shoul be .txt): ")
         try:
@@ -50,13 +49,12 @@ def get_file():
 
 # This function counts words
 def count_words(file_handle):
-    words_count = None
-
-
-    
-
-
-
+    words_count = 0
+    content = file_handle.read()
+    print(content)
+    word_list = content.split()
+    print(word_list)
+    words_count = len(word_list)
     return words_count
 
 
@@ -107,6 +105,7 @@ def main():
     borders("*")
 
     file_handle = get_file()
+
     if not file_handle:
         print(type(file_handle))
         print("🏃Exiting the program",end='')
@@ -115,8 +114,11 @@ def main():
             time.sleep(1)
         quit()
     else:
-        print("CHECKED THAT FILE IS NOT EMPTY")
-        # display_file_content(file_handle)
+        display_file_content(file_handle)
+    
+    file_handle.seek(0)
+    total_words = count_words(file_handle)
+    print("Total Words in the file: ",total_words)
 
 
 
