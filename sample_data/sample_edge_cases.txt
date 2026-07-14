@@ -1,0 +1,5 @@
+Python is a great language. PYTHON is also fun. python never gets old!
+
+Some tools are considered state-of-the-art, but they don't always work well. It's surprising how often simple code wins.
+
+Wait, really?! I didn't expect that in 2024.
