@@ -158,7 +158,7 @@ def main():
         quit() 
     
     # This is added just for debuging purpose
-    display_file_content(file_handle)
+    # display_file_content(file_handle)
     total_words = count_words(file_handle)
     total_sentences = count_sentences(file_handle)
     total_characters = count_chars(file_handle)
@@ -175,11 +175,9 @@ def main():
         print(f"{index} {key}: {value} ")
     
     frequencies = word_freq(file_handle)
-    print("Frequency histogram should have dict() type: ",type(frequencies))
+   
 
-    print("\n\n")
     unique_count = count_unique_words(file_handle)
-    print("Unique word count should be an integer: ",type(unique_count))
     print("Number of unique words: ",unique_count)
 
 
