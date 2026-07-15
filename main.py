@@ -113,6 +113,7 @@ def word_freq(file_handle):
 def count_unique_words(file_handle):
 
     histogram = word_freq(file_handle)   
+    # return a list of unique word in form of a dictionary
     print("COUNTING UNIQUE WORDS INSIDE THE FILE",type(histogram))
     return histogram
 
@@ -176,6 +177,9 @@ def main():
     frequencies = word_freq(file_handle)
     print("Frequency histogram should have dict() type: ",type(frequencies))
 
+    print("\n\n")
+    top_n_words = count_unique_words(file_handle)
+    print(top_n_words)
 
 
 
