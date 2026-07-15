@@ -106,13 +106,6 @@ def word_freq(file_handle):
     for word in word_list:
         word = word.lower()
         histogram[word] = histogram.get(word,0) + 1    
-    
-
-    # for debuging
-    print("printing key values pairs of words and their count")
-    for key,value in histogram.items():
-        print(f"{key} : {value}")
-
     return histogram
 
 
