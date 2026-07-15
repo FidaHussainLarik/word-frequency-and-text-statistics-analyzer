@@ -105,6 +105,8 @@ def word_freq(file_handle):
     # count the frequency of each word using dictionary
     for word in word_list:
         word = word.lower()
+        
+        #get(word,0) will check the dictionary for the current word. If the word is present it return its value(a numeric value) if not it retrun 0 by default
         histogram[word] = histogram.get(word,0) + 1    
     return histogram
 
