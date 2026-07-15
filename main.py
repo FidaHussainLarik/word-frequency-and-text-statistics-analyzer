@@ -92,8 +92,27 @@ def count_chars(file_handle):
 
 
 # Keep word frequency dictionary/histrogram
-def word_freq(file):
-    histogram = None
+def word_freq(file_handle):
+    #file pointer shifted to first line
+    file_handle.seek(0)
+    # read() transfer the entire content of file as a string in content
+    content = file_handle.read()
+
+    # split() creates a list of words
+    word_list = content.split()
+    histogram = dict()
+
+    # count the frequency of each word using dictionary
+    for word in word_list:
+        word = word.lower()
+        histogram[word] = histogram.get(word,0) + 1    
+    
+
+    # for debuging
+    print("printing key values pairs of words and their count")
+    for key,value in histogram.items():
+        print(f"{key} : {value}")
+
     return histogram
 
 
@@ -153,6 +172,9 @@ def main():
     char_count = count_chars(file_handle)
     for key, value in char_count.items():
         print(f"Characters ({key}): {value} ")
+    
+    frequencies = word_freq(file_handle)
+    print("Frequency histogram should have dict() type: ",type(frequencies))
 
 
 
