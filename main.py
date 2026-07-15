@@ -71,8 +71,23 @@ def count_sentences(file_handle):
 
 
 # count the number of charaters inside the file,with and without spaces.
-def count_chars(file):
-    char_count = None
+def count_chars(file_handle):
+
+    file_handle.seek(0)
+    content = file_handle.read()
+    char_count = dict()
+
+    #Give the lenght of entire file's characters
+    char_count['with whitespaces'] = len(content)
+
+    count_without_spaces = 0
+    for char in content:
+        # count character and skips spaces
+        if not char == ' ':
+            count_without_spaces = count_without_spaces+1
+
+    char_count['without whitespaces'] = count_without_spaces
+
     return char_count
 
 
@@ -126,12 +141,18 @@ def main():
     display_file_content(file_handle)
     total_words = count_words(file_handle)
     total_sentences = count_sentences(file_handle)
+    total_characters = count_chars(file_handle)
+
 
 
 
     print("Total Words in the file    : ",total_words)
     print("Total sentences in the file: ",total_sentences)
 
+    # A dictionary return key:value for number of chars with and without spaces
+    char_count = count_chars(file_handle)
+    for key, value in char_count.items():
+        print(f"Characters ({key}): {value} ")
 
 
 
