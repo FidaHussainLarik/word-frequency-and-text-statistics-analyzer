@@ -115,7 +115,7 @@ def count_unique_words(file_handle):
     histogram = word_freq(file_handle)   
     # return a list of unique word in form of a dictionary
     print("COUNTING UNIQUE WORDS INSIDE THE FILE",type(histogram))
-    return histogram
+    return len(histogram)
 
 # Count top N most frequent words
 def top_most(file):
@@ -170,16 +170,17 @@ def main():
     print("Total sentences in the file: ",total_sentences)
 
     # A dictionary return key:value for number of chars with and without spaces
-    char_count = count_chars(file_handle)
-    for key, value in char_count.items():
-        print(f"Characters ({key}): {value} ")
+    word_count = word_freq(file_handle)
+    for index, (key, value) in enumerate(word_count.items(),1):
+        print(f"{index} {key}: {value} ")
     
     frequencies = word_freq(file_handle)
     print("Frequency histogram should have dict() type: ",type(frequencies))
 
     print("\n\n")
-    top_n_words = count_unique_words(file_handle)
-    print(top_n_words)
+    unique_count = count_unique_words(file_handle)
+    print("Unique word count should be an integer: ",type(unique_count))
+    print("Number of unique words: ",unique_count)
 
 
 
