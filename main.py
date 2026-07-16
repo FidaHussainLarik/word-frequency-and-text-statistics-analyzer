@@ -146,7 +146,7 @@ def file_report(file_handle):
     print("     --- Top 10 Words ---")
     for index, (value,key) in enumerate(top_ten_word,1):
         print(f"{index}     {key}       {value}")
-    print(top_ten_word)
+  
 
     
 def borders(type_of_b):
