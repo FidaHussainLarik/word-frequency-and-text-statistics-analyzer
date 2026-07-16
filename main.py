@@ -203,7 +203,7 @@ def main():
     print("top most words in a list of tuple")
 
     for index,(value,key) in enumerate(top_most_words):
-        print(f"{index}     {key}       {value}")
+        print(f"{index} {key} {value}")
 
 
 
