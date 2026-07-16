@@ -144,11 +144,7 @@ def report(file_handle):
         print(f"Total chracters ({key})      : {value} ")
     
     print("Unique words                     :",unique_word_count)
-
-    """ --- word frequency --- """
-    for index , (key,value) in enumerate(word_frequency.items()):
-        print(index," ",key," ",value)
-    
+   
     print("     --- Top 10 Words ---")
     for index, (key,value) in enumerate(top_most_word):
         print( print(f"{index} {key} {value}"))
