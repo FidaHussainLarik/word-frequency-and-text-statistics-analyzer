@@ -120,6 +120,7 @@ def top_most(histogram):
     top_10_list = list()
 
     for (key,value) in histogram.items():
+        key.strip()
         top_10_list.append((value,key))
     # sorting the list of tuples of (value,key) pair in descending order
     top_10_list.sort(reverse= True)
@@ -181,6 +182,7 @@ def main():
         print(f"Total chracters ({key}): {value} ")
 
     # 5th feature (counting frequency of words)
+    print("Listing down the frequency of each word")
     word_frequency = word_freq(file_handle)
     for index, (key, value) in enumerate(word_frequency.items(),1):
         #this will remove the '.' attached to words in the dictionary's values
@@ -199,8 +201,9 @@ def main():
     # 7th feature (finding 10 top most words)
     top_most_words = top_most(frequency_histogram)
     print("top most words in a list of tuple")
-    for value,key in top_most_words:
-        print(key,value)
+
+    for index,(value,key) in enumerate(top_most_words):
+        print(f"{index}     {key}       {value}")
 
 
 
