@@ -19,7 +19,7 @@ def get_file():
                     return file_handle
                 else:
                     print("File is empty 📪")
-                    print("File has no content to analyze.")
+                    print("This file is empty — there's no content to analyze. Try a different file.")
                     answer = input("Press enter to re-enter the correct file format OR enter 'exit' to end the program: ").strip().lower()
                     if answer == 'exit': 
                         break
