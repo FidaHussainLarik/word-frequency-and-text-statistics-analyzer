@@ -26,7 +26,8 @@ def get_file():
                     else:
                         continue
             else:
-                print("Unsupported file format ⚠")
+                print("""\nThat file couldn't be read as text — it may be corrupted, use an unsupported encoding, or not be a text file at all. Try a different file.\n""")
+                
                 answer = input("Press enter to re-enter the correct file format OR enter 'exit' to end the program: ").strip().lower()
                 if answer == 'exit': 
                     break
@@ -167,7 +168,7 @@ def main():
         # file_handle = open(DATA_FILE_PATH/"sample_short.txt")
 
         if not file_handle:
-            print("🏃Exiting the program",end='')
+            print("🏃Exiting the program\n\n\n",end='')
             for _ in range(5):
                 print(".",end='')
                 time.sleep(1)
