@@ -177,14 +177,23 @@ def main():
 
 
 
-        print("Analyze another file? (yes/no): ",end='')
-        answer = input().strip().lower()
+        
+        while True:
+            print("Analyze another file? (yes/no): ",end='')
+            answer = input().strip().lower()
+            if answer == 'yes' or answer == 'no':
+                if answer == "yes":
+                    break
+                else:
+                    print("Done ✅✅✅✅✅✅✅✅✅")
+                    print("Exiting the program......\n\n\n")
+                    borders('*')
+                    quit()
+            else:
+                continue
+            
 
-        if answer == "yes":
-            continue
-        else:
-            print("Done ✅✅✅✅✅✅✅✅✅")
-            quit()
+        
         
     # End of the main function
     print("\n\n")
