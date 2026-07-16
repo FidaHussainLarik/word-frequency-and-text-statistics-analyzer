@@ -150,7 +150,7 @@ def file_report(file_handle):
 
     
 def borders(type_of_b):
-    print(f"{type_of_b*70}")
+    print(f"{type_of_b*75}")
 
 def main():
     print("\n\n")
@@ -174,6 +174,7 @@ def main():
         
         # Print the summary report
         file_report(file_handle)
+        borders('*')
 
 
 
