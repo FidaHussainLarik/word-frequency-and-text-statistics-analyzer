@@ -78,7 +78,7 @@ def count_chars(file_handle):
     char_count = dict()
 
     #Give the lenght of entire file's characters
-    char_count['with whitespaces'] = len(content)
+    char_count['w/ spaces'] = len(content)
 
     count_without_spaces = 0
     for char in content:
@@ -86,7 +86,7 @@ def count_chars(file_handle):
         if not char == ' ':
             count_without_spaces = count_without_spaces+1
 
-    char_count['without whitespaces'] = count_without_spaces
+    char_count['no spaces'] = count_without_spaces
 
     return char_count
 
@@ -135,6 +135,7 @@ def report(file_handle):
     unique_word_count = count_unique_words(word_frequency)
     top_most_word = top_most( word_freq(file_handle))
     
+
 
     print("Total Words:              ",total_words)
     print("Total sentences:          ",total_sentences)
