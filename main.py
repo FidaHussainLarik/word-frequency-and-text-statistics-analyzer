@@ -177,9 +177,10 @@ def main():
     # 5th feature (counting frequency of words)
     word_frequency = word_freq(file_handle)
     for index, (key, value) in enumerate(word_frequency.items(),1):
+        #this will remove the '.' attached to words in the dictionary's values
         key = key.strip('.')
         if index <= 9:
-            print(f"{index}  {key}: {value} ")
+            print(f"{index}  {key.strip()}: {value} ")
         print(f"{index} {key}: {value} ")
     frequency_histogram = word_freq(file_handle)
    
@@ -187,12 +188,6 @@ def main():
     # 6th feature (Number of unique words)
     unique_count = count_unique_words(frequency_histogram)
     print("Number of unique words: ",unique_count)
-
-
-    """Disan he save thiye tho main aien unique_word_count mn"""
-    
-
-
 
 
 
