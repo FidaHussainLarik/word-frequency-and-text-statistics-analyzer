@@ -168,10 +168,12 @@ def main():
         # file_handle = open(DATA_FILE_PATH/"sample_short.txt")
 
         if not file_handle:
-            print("🏃Exiting the program\n\n\n",end='')
+            print("🏃Exiting the program",end='')
             for _ in range(5):
                 print(".",end='')
                 time.sleep(1)
+            print("\n\n\n")
+            borders('*')
             quit() 
         
         # Print the summary report
