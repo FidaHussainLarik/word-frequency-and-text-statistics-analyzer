@@ -1,0 +1,419 @@
+Python is an amazing programming language. Python is simple, powerful, and fun to learn.
+
+Many beginners start with Python because its syntax is easy to understand. However, mastering Python requires consistent practice, patience, and curiosity.
+
+Programming is not just about writing code. Programming is about solving problems. The more problems you solve, the better programmer you become.
+
+Artificial Intelligence, Machine Learning, and Data Science are exciting fields. Python is widely used in AI, web development, automation, and data analysis.
+
+Numbers like 100, 200, and 300 should be handled properly. Symbols such as @, #, $, %, &, *, (, ), and ! should not become words.
+
+The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+
+Learning by building projects is one of the fastest ways to improve your programming skills. Reading alone is never enough.
+
+Practice. Practice! Practice?
+
+Never stop learning.
+
+AI AI AI AI AI
+Python Python python PYTHON
+
+a an the is are was were be been being
+
+Supercalifragilisticexpialidocious is an extremely long word.
+I am.
+
+End of file.
+
+
+📢 A feat is a noun that refers to a remarkable, noteworthy, or extraordinary achievement. It describes an action or deed that requires a significant amount of courage, skill, strength, or endurance.
+
+
+Imperative mood: "feat: Add word frequency counter," not "Added" or "Adding." Think of it
+completing the sentence 
+"If applied, this commit will implement file reading 
+
+
+chore: initialize repository with .gitignore and README stub
+# git commit -m "feat: add project skeleton with stub functions"
+feat: implement file reading
+feat: implement basic word counting
+feat: implement sentence counting
+feat: implement character counting with and without spaces
+feat: implement case-insensitive word frequency dictionary
+feat: strip punctuation before counting word frequency
+feat: implement top-N frequent word ranking
+feat: implement formatted console report
+feat: wire together end-to-end analysis flow
+feat: handle missing file with friendly error message
+feat: handle empty file with explicit message
+feat: handle unreadable file without crashing
+feat: allow analyzing multiple files without restarting
+fix: correct sentence count on repeated terminal punctuation
+fix: correct off-by-one error in top-N word ranking
+refactor: extract report formatting into its own function
+refactor: rename unclear variables in frequency counting logic
+feat: exclude common stop words from top-word ranking
+feat: add average word and sentence length to report
+feat: identify longest and shortest word in text
+feat: add option to save report to output file
+feat: allow user to configure number of top words shown
+docs: write full README with usage and example output
+test: add sample text files with manually verified counts
+style: remove leftover debug print statement
+
+
+
+--------------------------------------------------
+GIT COMMANDS TO RESENT CHANGES
+--------------------------------------------------
+
+git reset --soft HEAD~1
+
+What it does: It moves the HEAD back to the previous commit.
+Result: Your changes are kept and will be moved back into your "Staged" area (the index). You can then make more changes, re-commit, or edit your files.
+
+git reset HEAD~1
+
+What it does: This is the default reset mode. It keeps the changes in your files but they are unstaged.
+
+git reset --hard HEAD~1
+
+What it does: It moves the HEAD back and forces your working directory and staging area to match that previous state.
+
+Result: Any work you did in that commit is gone.
+
+
+
+# Merge into main
+git switch main
+git merge word_frequency_count
+
+# Delete local branch
+git branch -d word_frequency_count
+
+# Delete remote branch
+git push origin --delete word_frequency_count
+
+git branch      # Local branches
+git branch -r   # Remote branches
+git branch -a   # All branches
+
+
+
+
+==================================================
+   Word Frequency & Text Statistics Analyzer
+==================================================
+
+Enter the path to a text file (or 'quit' to exit): sample_data/sample_short.txt
+
+Analyzing 'sample_short.txt'...
+
+--- Text Statistics ---
+File Analyzed               : sample_short.txt
+Total Words                 : 21
+Total Sentences             : 3
+Total Characters (w/ spaces): 130
+Total Characters (no spaces): 110
+Unique Words                : 17
+
+--- Top 10 Words ---
+Rank   Word            Count
+----   -------------   -----
+1      python              3
+2      is                  3
+3      a                   1
+4      powerful            1
+5      programming         1
+6      language            1
+7      easy                1
+8      to                  1
+9      learn               1
+10     many                1
+
+==================================================
+
+Analyze another file? (y/n):
+
+
+
+
+
+
+
+
+**************************************************************************************************
+
+Extended form of the project
+
+
+
+==================================================
+   Word Frequency & Text Statistics Analyzer
+==================================================
+
+Enter the path to a text file (or 'quit' to exit): sample_data/sample_short.txt
+
+Analyzing 'sample_short.txt'...
+
+
+
+--- Text Statistics ---
+File Analyzed              : sample_short.txt
+Total Words                : 21
+Total Sentences             : 3
+Total Characters (w/ spaces): 130
+Total Characters (no spaces): 110
+Unique Words                : 17
+Average Word Length         : 5.10 characters
+Average Sentence Length     : 7.0 words
+Longest Word                : programming (11 characters)
+Shortest Word               : a (1 character)
+Readability                 : Easy
+
+--- Top 10 Words (stop words excluded) ---
+Rank   Word            Count
+----   -------------   -----
+1      python              3
+2      is                  3
+...
+**************************************************************************************************
+
+
+Mising file
+
+Enter the path to a text file (or 'quit' to exit): sample_data/nofile.txt
+
+That file couldn't be found. Please check the path and try again.
+
+Enter the path to a text file (or 'quit' to exit): _
+
+
+
+
+**************************************************************************************************
+Empty file:
+
+Enter the path to a text file (or 'quit' to exit): sample_data/sample_empty.txt
+
+This file is empty — there's no content to analyze. Try a different file.
+
+Enter the path to a text file (or 'quit' to exit): _
+
+
+**************************************************************************************************
+
+
+Unreadable / bad encoding:
+Enter the path to a text file (or 'quit' to exit): sample_data/sample_bad_encoding.txt
+
+That file couldn't be read as text — it may be corrupted, use an
+unsupported encoding, or not be a text file at all. Try a different file.
+
+Enter the path to a text file (or 'quit' to exit): _
+
+
+
+
+
+
+
+
+
+
+Act as a Senior Python Developer, Senior AI Engineer, Technical Mentor, and Software Engineering Hiring Manager with 15+ years of experience.
+
+## About Me
+
+I am a Computer Science student who wants to become a Full Stack AI Engineer.
+
+I have completed the first two courses of the Python for Everybody Specialization by the University of Michigan.
+
+### Course 1: Programming for Everybody
+
+I learned:
+
+- Variables
+- Expressions
+- Conditionals
+- Loops
+- Functions
+- User Input
+- Error Handling (try/except)
+- Basic File Handling
+- Python Syntax
+- Debugging
+- Problem Solving
+
+### Course 2: Python Data Structures
+
+I learned:
+
+- Lists
+- Dictionaries
+- Tuples
+- Strings
+- File Handling
+- Text Processing
+- Data Processing
+- Dictionary-based Counting
+- Frequency Analysis
+- Sorting
+- Data Parsing
+- String Manipulation
+- Built-in Functions
+- Algorithmic Thinking
+- Debugging
+- Problem Solving
+
+I have genuinely mastered these topics.
+
+Do NOT suggest projects that require knowledge of:
+
+- Object-Oriented Programming
+- APIs
+- Flask
+- Django
+- Databases
+- NumPy
+- Pandas
+- Machine Learning
+- Data Science libraries
+- Web Development
+- GUI Programming
+- Multithreading
+- Networking
+
+Only use the concepts I already know.
+
+---
+
+## Your Task
+
+Design portfolio-quality Python projects that fully utilize my current knowledge.
+
+Each project should:
+
+- Feel like a real-world application.
+- Be suitable for GitHub.
+- Help me become a stronger Python developer.
+- Impress recruiters hiring Python Developers and AI Engineer interns.
+- Gradually increase in difficulty.
+
+For each project provide:
+
+### 1. Project Name
+
+A professional title.
+
+### 2. Difficulty
+
+Beginner / Beginner+ / Intermediate Beginner
+
+### 3. Real-world Problem
+
+Explain what problem the project solves.
+
+### 4. Skills Practiced
+
+List every Python skill reinforced.
+
+### 5. Concepts Used
+
+Mention exactly which concepts from Courses 1 and 2 are applied.
+
+### 6. Features
+
+Separate into:
+
+Must-have Features
+
+Optional Features
+
+Challenge Features
+
+### 7. Learning Outcomes
+
+Explain what I will learn.
+
+### 8. Recruiter Value
+
+Explain why this project would look good on GitHub and LinkedIn.
+
+### 9. Possible Extensions
+
+Describe how the project could later be upgraded after I learn:
+
+- OOP
+- CSV
+- JSON
+- Regular Expressions
+- Web APIs
+- Flask
+- SQL
+- Databases
+- Data Analysis
+- Machine Learning
+
+### 10. Estimated Time
+
+Estimate hours required.
+
+### 11. GitHub README Description
+
+Write a professional one-paragraph project description suitable for GitHub.
+
+---
+
+## Project Requirements
+
+Generate at least 25 project ideas.
+
+Organize them into four levels:
+
+Level 1 — Skill Reinforcement (Easy)
+
+Level 2 — Portfolio Projects
+
+Level 3 — Mini Real-world Applications
+
+Level 4 — Recruiter-Worthy Projects
+
+Projects should focus on areas like:
+
+- Text Processing
+- File Processing
+- Log Analysis
+- Frequency Analysis
+- Data Cleaning
+- Report Generation
+- Simple Search Engines
+- Text Analytics
+- Command-Line Utilities
+- File Organization
+- Student Management (without databases)
+- Inventory Systems
+- Expense Tracking
+- Password Analysis
+- Email Log Analysis
+- Word Statistics
+- Book/Text Analysis
+- Text-based Games
+- CSV-ready applications (without actually using CSV libraries)
+
+Avoid toy examples like:
+- Calculator
+- Guess the Number
+- Rock Paper Scissors
+- Basic To-Do List
+- Temperature Converter
+
+unless they are significantly expanded into portfolio-quality applications.
+
+---
+
+Finally,
+
+Rank the Top 10 projects that would give me the highest learning value while staying within my current skill level, and explain why.

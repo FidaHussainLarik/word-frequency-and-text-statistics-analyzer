@@ -160,8 +160,8 @@ def main():
 
     # for debuging purpose choose a static file not ask one on run time
      # 1st feature
-    # file_handle = get_file()
-    file_handle = open(DATA_FILE_PATH/"sample_short.txt")
+    file_handle = get_file()
+    # file_handle = open(DATA_FILE_PATH/"sample_short.txt")
 
     if not file_handle:
         print(type(file_handle))
