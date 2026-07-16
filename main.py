@@ -115,7 +115,7 @@ def count_unique_words(histogram):
     return len(histogram)
 
 # Count top N most frequent words
-def top_most(histogram):
+def top_10_words(histogram):
 
     top_10_list = list()
 
@@ -133,7 +133,7 @@ def report(file_handle):
     total_chars = count_chars(file_handle)
     word_frequency = word_freq(file_handle)
     unique_word_count = count_unique_words(word_frequency)
-    top_most_word = top_most( word_freq(file_handle))
+    top_most_word = top_10_words( word_freq(file_handle))
     
 
 
