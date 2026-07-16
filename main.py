@@ -125,7 +125,7 @@ def top_10_words(histogram):
     return top_10_list[:10]
 
 # Summary report generator
-def report(file_handle):
+def file_report(file_handle):
     total_words = count_words(file_handle)
     total_sentences = count_sentences(file_handle)
     total_chars = count_chars(file_handle)
@@ -160,24 +160,32 @@ def main():
 
     # for debuging purpose choose a static file not ask one on run time
      # 1st feature
-    file_handle = get_file()
-    # file_handle = open(DATA_FILE_PATH/"sample_short.txt")
 
-    if not file_handle:
-        print(type(file_handle))
-        print("🏃Exiting the program",end='')
-        for _ in range(5):
-            print(".",end='')
-            time.sleep(1)
-        quit() 
-    
-    # Print the summary report
-    report(file_handle)
+    while True: 
+        file_handle = get_file()
+        # file_handle = open(DATA_FILE_PATH/"sample_short.txt")
+
+        if not file_handle:
+            print("🏃Exiting the program",end='')
+            for _ in range(5):
+                print(".",end='')
+                time.sleep(1)
+            quit() 
+        
+        # Print the summary report
+        file_report(file_handle)
 
 
 
-    print("Analyze another file? (y/n):")
-    print("Done ✅✅✅✅✅✅✅✅✅")
+        print("Analyze another file? (yes/no): ",end='')
+        answer = input().strip().lower()
+
+        if answer == "yes":
+            continue
+        else:
+            print("Done ✅✅✅✅✅✅✅✅✅")
+            quit()
+        
     # End of the main function
     print("\n\n")
 
