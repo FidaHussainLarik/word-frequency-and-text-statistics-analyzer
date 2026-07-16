@@ -147,7 +147,8 @@ def file_report(file_handle):
     for index, (value,key) in enumerate(top_ten_word,1):
         if index <=9:
             print(f"{index}       {key}       {value}")
-        else:print(f"{index}      {key}       {value}")
+        else:
+            print(f"{index}      {key}       {value}")
 
     
 def borders(type_of_b):
