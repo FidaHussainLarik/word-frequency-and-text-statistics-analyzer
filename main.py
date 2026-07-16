@@ -156,15 +156,6 @@ def report(file_handle):
 def borders(type_of_b):
     print(f"{type_of_b*70}")
 
-def display_file_content(file_handle):
-    borders("-")
-    print("                 Displaying file content")
-    borders("-")
-
-    for line in file_handle:
-        line = line.strip()
-        print(line)
-
 def main():
     print("\n\n")
     borders("*")
