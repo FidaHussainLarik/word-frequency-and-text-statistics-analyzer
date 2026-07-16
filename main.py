@@ -143,7 +143,7 @@ def file_report(file_handle):
     
     print("Unique words                     :",unique_word_count)
    
-    print("     --- Top 10 Words ---")
+    print("\n\n     --- Top 10 Words ---")
     for index, (value,key) in enumerate(top_ten_word,1):
         if index <=9:
             print(f"{index}       {key}       {value}")
