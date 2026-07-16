@@ -127,8 +127,33 @@ def top_most(histogram):
     return top_10_list
 
 # Summary report generator
-def report(file):
-    return None
+def report(file_handle):
+    total_words = count_words(file_handle)
+    total_sentences = count_sentences(file_handle)
+    total_chars = count_chars(file_handle)
+    word_frequency = word_freq(file_handle)
+    unique_word_count = count_unique_words(word_frequency)
+    top_most_word = top_most( word_freq(file_handle))
+    
+
+    print("Total Words:              ",total_words)
+    print("Total sentences:          ",total_sentences)
+
+    for key,value in total_chars.items():
+        print(f"Total chracters ({key}): {value} ")
+    
+    print("Unique words:             ",unique_word_count)
+
+    """ --- word frequency --- """
+    for index , (key,value) in enumerate(word_frequency.items()):
+        print(index," ",key," ",value)
+    
+    print("     --- Top 10 Words ---")
+    for index, (key,value) in enumerate(top_most_word):
+        print( print(f"{index} {key} {value}"))
+
+    
+    
 
 def borders(type_of_b):
     print(f"{type_of_b*70}")
@@ -162,54 +187,56 @@ def main():
             time.sleep(1)
         quit() 
     
-    # This is added just for debuging purpose
-    # display_file_content(file_handle)
-    total_words = count_words(file_handle)
-    total_sentences = count_sentences(file_handle)
-    total_characters = count_chars(file_handle)
+    # # This is added just for debuging purpose
+    # # display_file_content(file_handle)
+    # total_words = count_words(file_handle)
+    # total_sentences = count_sentences(file_handle)
+    # total_characters = count_chars(file_handle)
 
 
 
-    # 2nd feature (Total Words in the file)
-    print("Total Words in the file    : ",total_words)
+    # # 2nd feature (Total Words in the file)
+    # print("Total Words in the file    : ",total_words)
     
-    # 3rd feature (Total sentences in the file)
-    print("Total sentences in the file: ",total_sentences)
+    # # 3rd feature (Total sentences in the file)
+    # print("Total sentences in the file: ",total_sentences)
 
-    # 4th feature (Total chracters)
-    # A dictionary return (key:value) tuple for number of chars with and without spaces
-    for key,value in total_characters.items():
-        print(f"Total chracters ({key}): {value} ")
+    # # 4th feature (Total chracters)
+    # # A dictionary return (key:value) tuple for number of chars with and without spaces
+    # for key,value in total_characters.items():
+    #     print(f"Total chracters ({key}): {value} ")
 
-    # 5th feature (counting frequency of words)
-    print("Listing down the frequency of each word")
-    word_frequency = word_freq(file_handle)
-    for index, (key, value) in enumerate(word_frequency.items(),1):
-        #this will remove the '.' attached to words in the dictionary's values
-        key = key.strip('.')
-        if index <= 9:
-            print(f"{index}  {key.strip()}: {value} ")
-        print(f"{index} {key}: {value} ")
-    frequency_histogram = word_freq(file_handle)
+    # # 5th feature (counting frequency of words)
+    # print("Listing down the frequency of each word")
+    # word_frequency = word_freq(file_handle)
+    # for index, (key, value) in enumerate(word_frequency.items(),1):
+    #     #this will remove the '.' attached to words in the dictionary's values
+    #     key = key.strip('.')
+    #     if index <= 9:
+    #         print(f"{index}  {key.strip()}: {value} ")
+    #     print(f"{index} {key}: {value} ")
+    # frequency_histogram = word_freq(file_handle)
    
 
-    # 6th feature (Number of unique words)
-    unique_count = count_unique_words(frequency_histogram)
-    print("Number of unique words: ",unique_count)
+    # # 6th feature (Number of unique words)
+    # unique_count = count_unique_words(frequency_histogram)
+    # print("Number of unique words: ",unique_count)
 
 
-    # 7th feature (finding 10 top most words)
-    top_most_words = top_most(frequency_histogram)
-    print("top most words in a list of tuple")
+    # # 7th feature (finding 10 top most words)
+    # top_most_words = top_most(frequency_histogram)
+    # print("top most words in a list of tuple")
 
-    for index,(value,key) in enumerate(top_most_words):
-        print(f"{index} {key} {value}")
+    # for index,(value,key) in enumerate(top_most_words):
+    #     print(f"{index} {key} {value}")
+
+    # Print the summary report
+    report(file_handle)
 
 
 
-
-
-
+    print("Analyze another file? (y/n):")
+    print("Done ✅✅✅✅✅✅✅✅✅")
     # End of the main function
     print("\n\n")
 
