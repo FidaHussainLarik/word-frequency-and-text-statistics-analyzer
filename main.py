@@ -3,7 +3,6 @@ import time
 import re
 DATA_FILE_PATH = Path(__file__).resolve().parent/"sample_data"
 
-
 # function to take user input (file name) and fetch that specific file and return file-handle back
 def get_file():
 
@@ -47,7 +46,6 @@ def get_file():
                 continue
 # End of the method
 
-
 # This function counts words
 def count_words(file_handle):
     # Reset the pointer to the first line of the file
@@ -67,7 +65,6 @@ def count_sentences(file_handle):
     content = file_handle.read()
     sent_list = re.split('[.!?]',content)
     return len(sent_list)-1
-
 
 
 # count the number of charaters inside the file,with and without spaces.
@@ -104,8 +101,8 @@ def word_freq(file_handle):
 
     # count the frequency of each word using dictionary
     for word in word_list:
-        word = word.lower().strip('.').strip()
-
+        word = word.lower().strip('.')
+        word = word.strip()
         
         #get(word,0) will check the dictionary for the current word. If the word is present it return its value(a numeric value) if not it retrun 0 by default
         histogram[word] = histogram.get(word,0) + 1    
@@ -152,8 +149,6 @@ def report(file_handle):
     print(top_ten_word)
 
     
-    
-
 def borders(type_of_b):
     print(f"{type_of_b*70}")
 
