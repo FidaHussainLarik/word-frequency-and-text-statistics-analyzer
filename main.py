@@ -193,12 +193,7 @@ def main():
                     quit()
             else:
                 continue
-            
-
-        
-        
-    # End of the main function
-    print("\n\n")
+    
 
 if __name__ == "__main__":
     main()
