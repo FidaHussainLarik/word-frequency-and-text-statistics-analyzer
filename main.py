@@ -115,9 +115,21 @@ def count_unique_words(histogram):
     return len(histogram)
 
 # Count top N most frequent words
-def top_most(file):
-    top_10 = None
-    return top_10
+def top_most(histogram):
+
+    top_10_list = list()
+
+    for (key,value) in histogram.items():
+        top_10_list.append((value,key))
+    # sorting the list of tuples of (value,key) pair in descending order
+    top_10_list.sort(reverse= True)
+    
+    print("TOP 10 ITEMS RETURNED AS A LIST OF TUPLE (VALUE,KEY) PAIR")
+    print("⚠📢")
+    for item in top_10_list:
+        print(item)
+
+    return top_10_list
 
 # Summary report generator
 def report(file):
@@ -190,6 +202,11 @@ def main():
     print("Number of unique words: ",unique_count)
 
 
+    # 7th feature (finding 10 top most words)
+    top_most_words = top_most(frequency_histogram)
+    print("top most words in a list of tuple")
+    for item in top_most_words:
+        print(item)
 
 
 
