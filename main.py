@@ -134,7 +134,7 @@ def file_report(file_handle):
 
     print("\nAnalyzing 'sample_short.txt'...\n")
     print("--- Text Statistics ---")
-    print("File Analyzed                    :",file_handle.name())
+    print("File Analyzed                    :")
     print("Total Words                      :",total_words)
     print("Total sentences                  :",total_sentences)
 
