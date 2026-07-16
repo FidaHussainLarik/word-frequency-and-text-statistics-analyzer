@@ -2,19 +2,18 @@ from pathlib import Path
 import time
 import re
 DATA_FILE_PATH = Path(__file__).resolve().parent/"sample_data"
-
+file_name = None
 # function to take user input (file name) and fetch that specific file and return file-handle back
 def get_file():
 
     while True:
-        file_name = input("Enter the file you want to analysis(format shoul be .txt): ")
+        file_name = input("\nEnter the file you want to analysis(format shoul be .txt): ")
         try:
             # Edge case handled
             if file_name.endswith('.txt'):
                 file_handle = open(DATA_FILE_PATH/file_name)
                 print("Opening the file.....")
                 print("File opened successfully!")
-                print("File Analyzed                    :",file_name)
                 #Check if file is empty or not before returning it to main
                 content = file_handle.read()
                 if content:
@@ -134,7 +133,9 @@ def file_report(file_handle):
     top_ten_word = top_10_words( word_frequency)
     
 
-
+    print("\nAnalyzing 'sample_short.txt'...\n")
+    print("--- Text Statistics ---")
+    print("File Analyzed                    :",file_name)
     print("Total Words                      :",total_words)
     print("Total sentences                  :",total_sentences)
 
@@ -143,7 +144,9 @@ def file_report(file_handle):
     
     print("Unique words                     :",unique_word_count)
    
-    print("\n\n     --- Top 10 Words ---")
+    print("\n\n--- Top 10 Words ---")
+    print("""Rank   Word            Count\n----   -------------   -----""")
+    # print("Rank       Word                Count")
     for index, (value,key) in enumerate(top_ten_word,1):
         if index <=9:
             print(f"{index}       {key}       {value}")
