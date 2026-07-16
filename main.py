@@ -124,7 +124,7 @@ def top_10_words(histogram):
         top_10_list.append((value,key))
     # sorting the list of tuples of (value,key) pair in descending order
     top_10_list.sort(reverse= True)
-    return top_10_list
+    return top_10_list[:10]
 
 # Summary report generator
 def report(file_handle):
@@ -133,7 +133,7 @@ def report(file_handle):
     total_chars = count_chars(file_handle)
     word_frequency = word_freq(file_handle)
     unique_word_count = count_unique_words(word_frequency)
-    top_most_word = top_10_words( word_freq(file_handle))
+    top_ten_word = top_10_words( word_frequency)
     
 
 
@@ -146,8 +146,9 @@ def report(file_handle):
     print("Unique words                     :",unique_word_count)
    
     print("     --- Top 10 Words ---")
-    for index, (key,value) in enumerate(top_most_word):
-        print( print(f"{index} {key} {value}"))
+    for index, (value,key) in enumerate(top_ten_word,1):
+        print(f"{index}     {key}       {value}")
+    print(top_ten_word)
 
     
     
