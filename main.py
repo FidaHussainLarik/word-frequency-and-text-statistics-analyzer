@@ -137,13 +137,13 @@ def report(file_handle):
     
 
 
-    print("Total Words:              ",total_words)
-    print("Total sentences:          ",total_sentences)
+    print("Total Words                      :",total_words)
+    print("Total sentences                  :",total_sentences)
 
     for key,value in total_chars.items():
-        print(f"Total chracters ({key}): {value} ")
+        print(f"Total chracters ({key})      : {value} ")
     
-    print("Unique words:             ",unique_word_count)
+    print("Unique words                     :",unique_word_count)
 
     """ --- word frequency --- """
     for index , (key,value) in enumerate(word_frequency.items()):
