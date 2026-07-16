@@ -2,7 +2,6 @@ from pathlib import Path
 import time
 import re
 DATA_FILE_PATH = Path(__file__).resolve().parent/"sample_data"
-file_name = None
 # function to take user input (file name) and fetch that specific file and return file-handle back
 def get_file():
 
@@ -135,7 +134,7 @@ def file_report(file_handle):
 
     print("\nAnalyzing 'sample_short.txt'...\n")
     print("--- Text Statistics ---")
-    print("File Analyzed                    :",file_name)
+    print("File Analyzed                    :",file_handle.name())
     print("Total Words                      :",total_words)
     print("Total sentences                  :",total_sentences)
 
