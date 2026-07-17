@@ -3,7 +3,6 @@ import time
 import re
 DATA_FILE_PATH = Path(__file__).resolve().parent/"sample_data"
 
-
 # function to take user input (file name) and fetch that specific file and return file-handle back
 def get_file():
 
@@ -47,7 +46,6 @@ def get_file():
                 continue
 # End of the method
 
-
 # This function counts words
 def count_words(file_handle):
     # Reset the pointer to the first line of the file
@@ -69,7 +67,6 @@ def count_sentences(file_handle):
     return len(sent_list)-1
 
 
-
 # count the number of charaters inside the file,with and without spaces.
 def count_chars(file_handle):
 
@@ -78,7 +75,7 @@ def count_chars(file_handle):
     char_count = dict()
 
     #Give the lenght of entire file's characters
-    char_count['with whitespaces'] = len(content)
+    char_count['w/ spaces'] = len(content)
 
     count_without_spaces = 0
     for char in content:
@@ -86,7 +83,7 @@ def count_chars(file_handle):
         if not char == ' ':
             count_without_spaces = count_without_spaces+1
 
-    char_count['without whitespaces'] = count_without_spaces
+    char_count['no spaces'] = count_without_spaces
 
     return char_count
 
@@ -104,7 +101,8 @@ def word_freq(file_handle):
 
     # count the frequency of each word using dictionary
     for word in word_list:
-        word = word.lower()
+        word = word.lower().strip('.')
+        word = word.strip()
         
         #get(word,0) will check the dictionary for the current word. If the word is present it return its value(a numeric value) if not it retrun 0 by default
         histogram[word] = histogram.get(word,0) + 1    
@@ -115,7 +113,7 @@ def count_unique_words(histogram):
     return len(histogram)
 
 # Count top N most frequent words
-def top_most(histogram):
+def top_10_words(histogram):
 
     top_10_list = list()
 
@@ -124,23 +122,35 @@ def top_most(histogram):
         top_10_list.append((value,key))
     # sorting the list of tuples of (value,key) pair in descending order
     top_10_list.sort(reverse= True)
-    return top_10_list
+    return top_10_list[:10]
 
 # Summary report generator
-def report(file):
-    return None
+def report(file_handle):
+    total_words = count_words(file_handle)
+    total_sentences = count_sentences(file_handle)
+    total_chars = count_chars(file_handle)
+    word_frequency = word_freq(file_handle)
+    unique_word_count = count_unique_words(word_frequency)
+    top_ten_word = top_10_words( word_frequency)
+    
 
+
+    print("Total Words                      :",total_words)
+    print("Total sentences                  :",total_sentences)
+
+    for key,value in total_chars.items():
+        print(f"Total chracters ({key})      : {value} ")
+    
+    print("Unique words                     :",unique_word_count)
+   
+    print("     --- Top 10 Words ---")
+    for index, (value,key) in enumerate(top_ten_word,1):
+        print(f"{index}     {key}       {value}")
+    print(top_ten_word)
+
+    
 def borders(type_of_b):
     print(f"{type_of_b*70}")
-
-def display_file_content(file_handle):
-    borders("-")
-    print("                 Displaying file content")
-    borders("-")
-
-    for line in file_handle:
-        line = line.strip()
-        print(line)
 
 def main():
     print("\n\n")
@@ -148,11 +158,10 @@ def main():
     print("         Word Frequency & Text Statistics Analyzer")
     borders("*")
 
-
     # for debuging purpose choose a static file not ask one on run time
      # 1st feature
-    # file_handle = get_file()
-    file_handle = open(DATA_FILE_PATH/"sample_short.txt")
+    file_handle = get_file()
+    # file_handle = open(DATA_FILE_PATH/"sample_short.txt")
 
     if not file_handle:
         print(type(file_handle))
@@ -211,6 +220,8 @@ def main():
 
 
 
+    print("Analyze another file? (y/n):")
+    print("Done ✅✅✅✅✅✅✅✅✅")
     # End of the main function
     print("\n\n")
 
