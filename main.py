@@ -171,8 +171,52 @@ def main():
             time.sleep(1)
         quit() 
     
-    # Print the summary report
-    report(file_handle)
+    # This is added just for debuging purpose
+    # display_file_content(file_handle)
+    total_words = count_words(file_handle)
+    total_sentences = count_sentences(file_handle)
+    total_characters = count_chars(file_handle)
+
+
+
+    # 2nd feature (Total Words in the file)
+    print("Total Words in the file    : ",total_words)
+    
+    # 3rd feature (Total sentences in the file)
+    print("Total sentences in the file: ",total_sentences)
+
+    # 4th feature (Total chracters)
+    # A dictionary return (key:value) tuple for number of chars with and without spaces
+    for key,value in total_characters.items():
+        print(f"Total chracters ({key}): {value} ")
+
+    # 5th feature (counting frequency of words)
+    print("Listing down the frequency of each word")
+    word_frequency = word_freq(file_handle)
+    for index, (key, value) in enumerate(word_frequency.items(),1):
+        #this will remove the '.' attached to words in the dictionary's values
+        key = key.strip('.')
+        if index <= 9:
+            print(f"{index}  {key.strip()}: {value} ")
+        print(f"{index} {key}: {value} ")
+    frequency_histogram = word_freq(file_handle)
+   
+
+    # 6th feature (Number of unique words)
+    unique_count = count_unique_words(frequency_histogram)
+    print("Number of unique words: ",unique_count)
+
+
+    
+
+
+
+
+    for index,(value,key) in enumerate(top_most_words):
+        print(f"{index} {key} {value}")
+
+
+
 
 
 
