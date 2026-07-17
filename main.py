@@ -198,9 +198,10 @@ def main():
     print("Number of unique words: ",unique_count)
 
 
-    # 7th feature (finding 10 top most words)
-    top_most_words = top_most(frequency_histogram)
-    print("top most words in a list of tuple")
+    
+
+
+
 
     for index,(value,key) in enumerate(top_most_words):
         print(f"{index} {key} {value}")
