@@ -182,7 +182,7 @@ def main():
 
 
 
-        
+        # this while loop is used incase when the user do not enter value yes or not.
         while True:
             print("Analyze another file? (yes/no): ",end='')
             answer = input().strip().lower()
