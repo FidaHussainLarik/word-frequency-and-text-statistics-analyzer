@@ -163,6 +163,9 @@ def main():
     print("         Word Frequency & Text Statistics Analyzer")
     borders("*")
 
+    # for debuging purpose choose a static file not ask one on run time
+     # 1st feature
+
     while True: 
         file_handle = get_file()
         # file_handle = open(DATA_FILE_PATH/"sample_short.txt")
