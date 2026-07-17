@@ -14,7 +14,7 @@ def get_file():
                 file_handle = open(DATA_FILE_PATH/file_name)
                 print("Opening the file.....")
                 print("File opened successfully!")
-
+                print("File Analyzed                    :",file_name)
                 #Check if file is empty or not before returning it to main
                 content = file_handle.read()
                 if content:
@@ -125,7 +125,7 @@ def top_10_words(histogram):
     return top_10_list[:10]
 
 # Summary report generator
-def report(file_handle):
+def file_report(file_handle):
     total_words = count_words(file_handle)
     total_sentences = count_sentences(file_handle)
     total_chars = count_chars(file_handle)
@@ -146,7 +146,7 @@ def report(file_handle):
     print("     --- Top 10 Words ---")
     for index, (value,key) in enumerate(top_ten_word,1):
         print(f"{index}     {key}       {value}")
-    print(top_ten_word)
+  
 
     
 def borders(type_of_b):
@@ -160,68 +160,41 @@ def main():
 
     # for debuging purpose choose a static file not ask one on run time
      # 1st feature
-    file_handle = get_file()
-    # file_handle = open(DATA_FILE_PATH/"sample_short.txt")
 
-    if not file_handle:
-        print(type(file_handle))
-        print("🏃Exiting the program",end='')
-        for _ in range(5):
-            print(".",end='')
-            time.sleep(1)
-        quit() 
-    
-    # This is added just for debuging purpose
-    # display_file_content(file_handle)
-    total_words = count_words(file_handle)
-    total_sentences = count_sentences(file_handle)
-    total_characters = count_chars(file_handle)
+    while True: 
+        file_handle = get_file()
+        # file_handle = open(DATA_FILE_PATH/"sample_short.txt")
+
+        if not file_handle:
+            print("🏃Exiting the program",end='')
+            for _ in range(5):
+                print(".",end='')
+                time.sleep(1)
+            quit() 
+        
+        # Print the summary report
+        file_report(file_handle)
 
 
 
-    # 2nd feature (Total Words in the file)
-    print("Total Words in the file    : ",total_words)
-    
-    # 3rd feature (Total sentences in the file)
-    print("Total sentences in the file: ",total_sentences)
+        
+        while True:
+            print("Analyze another file? (yes/no): ",end='')
+            answer = input().strip().lower()
+            if answer == 'yes' or answer == 'no':
+                if answer == "yes":
+                    break
+                else:
+                    print("Done ✅✅✅✅✅✅✅✅✅")
+                    print("Exiting the program......\n\n\n")
+                    borders('*')
+                    quit()
+            else:
+                continue
+            
 
-    # 4th feature (Total chracters)
-    # A dictionary return (key:value) tuple for number of chars with and without spaces
-    for key,value in total_characters.items():
-        print(f"Total chracters ({key}): {value} ")
-
-    # 5th feature (counting frequency of words)
-    print("Listing down the frequency of each word")
-    word_frequency = word_freq(file_handle)
-    for index, (key, value) in enumerate(word_frequency.items(),1):
-        #this will remove the '.' attached to words in the dictionary's values
-        key = key.strip('.')
-        if index <= 9:
-            print(f"{index}  {key.strip()}: {value} ")
-        print(f"{index} {key}: {value} ")
-    frequency_histogram = word_freq(file_handle)
-   
-
-    # 6th feature (Number of unique words)
-    unique_count = count_unique_words(frequency_histogram)
-    print("Number of unique words: ",unique_count)
-
-
-    
-
-
-
-
-    for index,(value,key) in enumerate(top_most_words):
-        print(f"{index} {key} {value}")
-
-
-
-
-
-
-    print("Analyze another file? (y/n):")
-    print("Done ✅✅✅✅✅✅✅✅✅")
+        
+        
     # End of the main function
     print("\n\n")
 
