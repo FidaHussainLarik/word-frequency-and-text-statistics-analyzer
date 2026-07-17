@@ -110,6 +110,9 @@ def word_freq(file_handle):
         histogram[word] = histogram.get(word,0) + 1    
     return histogram
 
+def count_unique_words(histogram):   
+    # return a list of unique word in form of a dictionary
+    return len(histogram)
 
 # Count top N most frequent words
 def top_most(file):
@@ -140,6 +143,7 @@ def main():
 
 
     # for debuging purpose choose a static file not ask one on run time
+     # 1st feature
     # file_handle = get_file()
     file_handle = open(DATA_FILE_PATH/"sample_short.txt")
 
@@ -152,25 +156,40 @@ def main():
         quit() 
     
     # This is added just for debuging purpose
-    display_file_content(file_handle)
+    # display_file_content(file_handle)
     total_words = count_words(file_handle)
     total_sentences = count_sentences(file_handle)
     total_characters = count_chars(file_handle)
 
 
 
-
+    # 2nd feature (Total Words in the file)
     print("Total Words in the file    : ",total_words)
+    
+    # 3rd feature (Total sentences in the file)
     print("Total sentences in the file: ",total_sentences)
 
-    # A dictionary return key:value for number of chars with and without spaces
-    char_count = count_chars(file_handle)
-    for key, value in char_count.items():
-        print(f"Characters ({key}): {value} ")
-    
-    frequencies = word_freq(file_handle)
-    print("Frequency histogram should have dict() type: ",type(frequencies))
+    # 4th feature (Total chracters)
+    # A dictionary return (key:value) tuple for number of chars with and without spaces
+    for key,value in total_characters.items():
+        print(f"Total chracters ({key}): {value} ")
 
+    # 5th feature (counting frequency of words)
+    word_frequency = word_freq(file_handle)
+    for index, (key, value) in enumerate(word_frequency.items(),1):
+        key = key.strip('.')
+        if index <= 9:
+            print(f"{index}  {key}: {value} ")
+        print(f"{index} {key}: {value} ")
+    frequency_histogram = word_freq(file_handle)
+   
+
+    # 6th feature (Number of unique words)
+    unique_count = count_unique_words(frequency_histogram)
+    print("Number of unique words: ",unique_count)
+
+
+    
 
 
 
