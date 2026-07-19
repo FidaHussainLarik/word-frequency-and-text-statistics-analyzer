@@ -141,4 +141,4 @@ These issues were found through direct testing against the sample files in `samp
 ---
 
 ## Author
-Built by Fida Hussain, as the first project in a Full Stack AI Engineer learning roadmap, following the Python for Everybody Specialization (Courses 1 and 2).
+Built by Fida Hussain, as the second project in a Full Stack AI Engineer learning roadmap, following the Python for Everybody Specialization (Courses 1 and 2).
