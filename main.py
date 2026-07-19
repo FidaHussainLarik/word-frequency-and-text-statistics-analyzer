@@ -15,6 +15,7 @@ def get_file():
                 print("File opened successfully!")
                 #Check if file is empty or not before returning it to main
                 content = file_handle.read()
+                file_handle.seek(0)
                 if content:
                     return file_handle
                 else:
@@ -46,10 +47,10 @@ def get_file():
 # End of the method
 
 # This function counts words
-def count_words(file_handle):
+def count_words(content):
     # Reset the pointer to the first line of the file
-    file_handle.seek(0)
-    content = file_handle.read()
+    # file_handle.seek(0)
+    # content = file_handle.read()
     # .split() function convert entire file content (which is a long string of words) into a list of words
     # list elements will be seperated by space ' '.
     word_list = content.split()
@@ -57,20 +58,20 @@ def count_words(file_handle):
 
 
 # this will count the total number of sentences in the file
-def count_sentences(file_handle):
+def count_sentences(content):
     # Reset the pointer to the first line of the file
-    file_handle.seek(0)
+    # file_handle.seek(0)
 
-    content = file_handle.read()
+    # content = file_handle.read()
     sent_list = re.split('[.!?]',content)
     return len(sent_list)-1
 
 
 # count the number of charaters inside the file,with and without spaces.
-def count_chars(file_handle):
+def count_chars(content):
 
-    file_handle.seek(0)
-    content = file_handle.read()
+    # file_handle.seek(0)
+    # content = content.read()
     char_count = dict()
 
     #Give the lenght of entire file's characters
@@ -88,11 +89,11 @@ def count_chars(file_handle):
 
 
 # Keep word frequency dictionary/histrogram
-def word_freq(file_handle):
+def word_freq(content):
     #file pointer shifted to first line
-    file_handle.seek(0)
+    # file_handle.seek(0)
     # read() transfer the entire content of file as a string in content
-    content = file_handle.read()
+    # content = file_handle.read()
 
     # split() creates a list of words
     word_list = content.split()
@@ -180,7 +181,8 @@ def main():
             quit() 
         
         # Print the summary report
-        file_report(file_handle)
+        content = file_handle.read()
+        file_report(content)
         borders('*')
 
 
