@@ -162,7 +162,7 @@ def main():
                 time.sleep(1)
             print("\n\n\n")
             borders('*')
-            quit() 
+            return 
         
         # Print the summary report
         content = file_handle.read()
@@ -183,7 +183,7 @@ def main():
                     print("Exiting the program......\n\n\n")
                     borders('*')
                     file_handle.close()
-                    quit()
+                    return
             else:
                 continue
     
