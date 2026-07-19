@@ -15,6 +15,7 @@ def get_file():
                 print("File opened successfully!")
                 #Check if file is empty or not before returning it to main
                 content = file_handle.read()
+                file_handle.seek(0)
                 if content:
                     return file_handle
                 else:
@@ -46,31 +47,20 @@ def get_file():
 # End of the method
 
 # This function counts words
-def count_words(file_handle):
-    # Reset the pointer to the first line of the file
-    file_handle.seek(0)
-    content = file_handle.read()
-    # .split() function convert entire file content (which is a long string of words) into a list of words
-    # list elements will be seperated by space ' '.
+def count_words(content):
     word_list = content.split()
     return len(word_list)
 
 
 # this will count the total number of sentences in the file
-def count_sentences(file_handle):
-    # Reset the pointer to the first line of the file
-    file_handle.seek(0)
-
-    content = file_handle.read()
+def count_sentences(content):
     sent_list = re.split('[.!?]',content)
     return len(sent_list)-1
 
 
 # count the number of charaters inside the file,with and without spaces.
-def count_chars(file_handle):
+def count_chars(content):
 
-    file_handle.seek(0)
-    content = file_handle.read()
     char_count = dict()
 
     #Give the lenght of entire file's characters
@@ -88,12 +78,7 @@ def count_chars(file_handle):
 
 
 # Keep word frequency dictionary/histrogram
-def word_freq(file_handle):
-    #file pointer shifted to first line
-    file_handle.seek(0)
-    # read() transfer the entire content of file as a string in content
-    content = file_handle.read()
-
+def word_freq(content):
     # split() creates a list of words
     word_list = content.split()
     histogram = dict()
@@ -124,11 +109,11 @@ def top_10_words(histogram):
     return top_10_list[:10]
 
 # Summary report generator
-def file_report(file_handle):
-    total_words = count_words(file_handle)
-    total_sentences = count_sentences(file_handle)
-    total_chars = count_chars(file_handle)
-    word_frequency = word_freq(file_handle)
+def file_report(content):
+    total_words = count_words(content)
+    total_sentences = count_sentences(content)
+    total_chars = count_chars(content)
+    word_frequency = word_freq(content)
     unique_word_count = count_unique_words(word_frequency)
     top_ten_word = top_10_words( word_frequency)
     
@@ -177,10 +162,11 @@ def main():
                 time.sleep(1)
             print("\n\n\n")
             borders('*')
-            quit() 
+            return 
         
         # Print the summary report
-        file_report(file_handle)
+        content = file_handle.read()
+        file_report(content)
         borders('*')
 
 
@@ -196,9 +182,11 @@ def main():
                     print("Done ✅✅✅✅✅✅✅✅✅")
                     print("Exiting the program......\n\n\n")
                     borders('*')
-                    quit()
+                    file_handle.close()
+                    return
             else:
                 continue
+    
  
 
 if __name__ == "__main__":
