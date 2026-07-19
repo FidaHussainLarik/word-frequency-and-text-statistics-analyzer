@@ -182,9 +182,11 @@ def main():
                     print("Done ✅✅✅✅✅✅✅✅✅")
                     print("Exiting the program......\n\n\n")
                     borders('*')
+                    file_handle.close()
                     quit()
             else:
                 continue
+    
  
 
 if __name__ == "__main__":
