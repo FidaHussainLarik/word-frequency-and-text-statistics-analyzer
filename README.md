@@ -140,8 +140,5 @@ These issues were found through direct testing against the sample files in `samp
 
 ---
 
-## License
-This project uses the MIT License. See the `LICENSE` file for details.
-
 ## Author
 Built by Fida Hussain, as the first project in a Full Stack AI Engineer learning roadmap, following the Python for Everybody Specialization (Courses 1 and 2).
