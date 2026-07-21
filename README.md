@@ -10,7 +10,7 @@ Writers, students, and content creators often want quick facts about a piece of 
 
 This tool answers these questions. It reads a plain text file (`.txt`) and prints a clear, organized report. You do not need to install any extra software — it uses only core Python.
 
-This is my first portfolio project. I built it to practice real Python skills and a professional Git workflow, as part of my path to become a Full Stack AI Engineer.
+This is my second portfolio project. I built it to practice real Python skills and a professional Git workflow, as part of my path to become a Full Stack AI Engineer.
 
 ---
 
